@@ -1,19 +1,25 @@
 import UserCard from '../UserCard/UserCard.js';
 import { useContext, useEffect, useState } from 'react';
 import { AppContext } from '../../App.js';
+import { UserServices } from '../../services/apiServices.js';
 
 const UsersComponent = () => {
   const handleClick = (user) => console.log(user.name);
+  const [ users, setUsers ] = useState([]);
 
-  const appContext = useContext(AppContext);
+  useEffect(() => {
+    UserServices.getUsers(setUsers);
+  }, []);
+
+
   return (
     <div style={{width: '45%'}}>
-      {appContext.users?.map((user) =>
+      {users?.map((user) =>
         <UserCard
           key={user.id}
           user={user}
           handleClick={handleClick}
-          info={appContext.info}
+          info={'info'}
         />
       )}
     </div>
