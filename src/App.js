@@ -1,25 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import MainComponent from './MainComponent.js';
 
-function App() {
+const title = <h1>Title</h1>;
+
+const App = () => {
+  const mainTitle = 'Main Component Title';
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app">
+      <h1 className='link'>{title}</h1>
+      <MainComponent title={mainTitle} subtitle='subtitle'/>
     </div>
   );
-}
+};
 
 export default App;
